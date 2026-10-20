@@ -1,1 +1,337 @@
+<!DOCTYPE html>
 
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Our Little Memories ♡</title>
+
+<style>
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+body {
+
+  margin: 0;
+
+  padding: 22px 14px;
+
+  background: #fff3f0;
+
+  color: #665052;
+
+  font-family: sans-serif;
+
+  line-height: 1.85;
+
+}
+
+.card {
+
+  max-width: 500px;
+
+  margin: 18px auto;
+
+  padding: 28px 22px;
+
+  background: #fffaf5;
+
+  border: 1px solid #f1d5d5;
+
+  border-radius: 24px;
+
+  box-shadow: 0 8px 25px #bd7c8420;
+
+  text-align: center;
+
+}
+
+.sticker {
+
+  display: inline-block;
+
+  margin: 5px;
+
+  padding: 5px 12px;
+
+  background: #fbe1e3;
+
+  border-radius: 12px;
+
+  transform: rotate(-3deg);
+
+}
+
+.heart {
+
+  color: #cf7488;
+
+  font-size: 32px;
+
+}
+
+h1, h2 {
+
+  color: #b65d73;
+
+  line-height: 1.5;
+
+}
+
+h1 {
+
+  font-size: 27px;
+
+}
+
+button {
+
+  background: #d8788d;
+
+  color: white;
+
+  border: 0;
+
+  border-radius: 30px;
+
+  padding: 13px 22px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+}
+
+.hidden {
+
+  display: none;
+
+}
+
+.letter {
+
+  padding: 20px;
+
+  background: #fff0ef;
+
+  border-radius: 16px;
+
+  text-align: left;
+
+  white-space: pre-line;
+
+}
+
+.video-box {
+
+  margin-top: 22px;
+
+  padding: 20px 12px;
+
+  background: #f8e5e5;
+
+  border: 1px dashed #dba3ad;
+
+  border-radius: 17px;
+
+}
+
+video {
+
+  width: 100%;
+
+  border-radius: 12px;
+
+}
+
+.small {
+
+  color: #a78b90;
+
+  font-size: 13px;
+
+}
+
+footer {
+
+  text-align: center;
+
+  color: #a78b90;
+
+  font-size: 12px;
+
+  padding: 18px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="card" id="cover">
+
+  <div class="sticker">FRIENDSHIP ♡</div>
+
+  <div class="heart">✿</div>
+
+  <h1>ถึงเพื่อนคนเก่งของเรา</h1>
+
+  <p>
+
+    หยีมีอะไรอยากให้ดูด้วยแหละ
+
+    <br>
+
+    ตั้งใจทำให้เลยนะ ห้ามรีบปิดก่อนล่ะ!
+
+  </p>
+
+  <div class="sticker">a little surprise 🎀</div>
+
+  <p>พร้อมย้อนดูความทรงจำของเราหรือยัง?</p>
+
+  <button onclick="openLetter()">
+
+    คลิกเพื่อเปิด ♡
+
+  </button>
+
+  <p class="small">some memories stay forever</p>
+
+</section>
+
+<section class="card hidden" id="surprise">
+
+  <div class="sticker">OUR LITTLE BOOK</div>
+
+  <div class="heart">♡</div>
+
+  <h1>ขอบคุณที่เป็นเพื่อนกันมานะ</h1>
+
+  <div class="letter">ถึงแก ♡
+
+ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในช่วงชีวิตนะ
+
+ขอบคุณทุกเสียงหัวเราะ ทุกเรื่องบ้า ๆ
+
+ขอบคุณที่คอยอยู่ทุกความสำเร็จในเรื่องเล็กๆ
+
+ขอบคุณที่ยังอยู่ด้วยกันมาตลอดไม่ว่าจะเจอเรื่องอะไรก็ตาม
+
+ขอบคุณทุกความทรงจำที่เราได้สร้างด้วยกัน
+
+ขอบคุณทุกอย่างทุกคนเลย3ปีที่อยู่ด้วยกันมันดีมากๆ
+
+มันดีจนไม่รู้ว่าอีกนานมั้ยกว่าที่เราจะได้มีโมเม้นต์ด้วยกันแบบนี้อีก
+
+ขอโทษที่บางครั้งทำตัวไม่ดีใส่
+
+ขอโทษที่บางครั้งอาจจะทำตัวให้ใครไม่ถูกใจ
+
+ขอโทษที่บางทีเผลอพูดจาแรงๆใส่
+
+ขอโทษทุกอย่างเลย
+
+แต่ก็ขอบคุณที่ยังอยู่ด้วยกันนะ
+
+พอคิดว่าต่อจากนี้แต่ละคนอาจมีเส้นทางของตัวเอง
+
+ก็แอบใจหายเหมือนกันเนาะ
+
+แต่ไม่ว่าอนาคตจะเป็นยังไง
+
+ก็หวังว่าทุกคนจะมีความสุขกับสิ่งที่เลือก
+
+ได้เจอคนดี ๆ และได้ใช้ชีวิตในแบบที่ต้องการ
+
+ไม่ว่าจะเจอเรื่องอะไรหลังจากนี้ก็ขอให้ผ่านมันไปได้
+
+ห่างกันก็จริง ไม่ได้เจอกันทุกวันเหมือนเดิมก็จริง
+
+แยกย้ายก็ไปเติบโตก็จริง แต่ถ้าคิดถึงก็เปิดคลิปเก่าๆดูได้นะ
+
+ดีใจนะที่ครั้งหนึ่งได้มาเป็นเพื่อนกัน6คน6สไตล์
+
+ไว้มีโอกาสก็กลับมาเล่าเรื่องราวให้กันฟังอีกนะ
+
+From yeeyee ♡</div>
+
+  <div class="video-box">
+
+    <div id="waiting">
+
+      <div class="heart">🎞️</div>
+
+      <h2>Our Memories</h2>
+
+      <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของเรา</p>
+
+      <p class="small">คลิปความทรงจำอยู่ตรงนี้ ♡</p>
+
+    </div>
+
+    <video id="myVideo" controls playsinline
+
+           preload="metadata" class="hidden">
+
+    </video>
+
+  </div>
+
+  <p>
+
+    วันหนึ่งถ้าใครสักคนในนี้กลับมาเปิดเว็บนี้อีก
+
+    <br>
+
+    ขอให้ยิ้มได้ทุกครั้งเมื่อนึกถึงวันวานของพวกเรานะ ♡
+
+  </p>
+
+  <button onclick="goBack()">กลับไปหน้าแรก</button>
+
+</section>
+
+<footer>made with friendship & love ♡</footer>
+
+<script>
+
+function openLetter() {
+
+  document.getElementById("cover").classList.add("hidden");
+
+  document.getElementById("surprise").classList.remove("hidden");
+
+  window.scrollTo(0, 0);
+
+}
+
+function goBack() {
+
+  const video = document.getElementById("myVideo");
+
+  video.pause();
+
+  document.getElementById("surprise").classList.add("hidden");
+
+  document.getElementById("cover").classList.remove("hidden");
+
+  window.scrollTo(0, 0);
+
+}
+
+</script>
+
+</body>
+
+</html>
