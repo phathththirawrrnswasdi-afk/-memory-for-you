@@ -27,21 +27,31 @@
     .page {
       display: none;
       min-height: 100vh;
+      width: 100%;
       padding: 24px 16px 40px;
-      animation: fadeIn 0.45s ease;
     }
 
     .page.active {
       display: flex;
       flex-direction: column;
       align-items: center;
+      animation: fadeIn 0.35s ease;
+    }
+
+    #cover.active,
+    #surprise.active,
+    #videoPage.active {
       justify-content: center;
+    }
+
+    #galleryPage.active {
+      justify-content: flex-start;
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(6px);
       }
       to {
         opacity: 1;
@@ -55,7 +65,7 @@
     }
 
     p {
-      line-height: 1.9;
+      line-height: 1.8;
     }
 
     button {
@@ -64,16 +74,11 @@
       background: #d99aaa;
       color: white;
       font-size: 15px;
-      padding: 12px 22px;
+      padding: 12px 20px;
       margin: 6px;
       cursor: pointer;
       box-shadow: 0 4px 10px #d99aaa33;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #c78094;
-      transform: translateY(-2px);
+      -webkit-tap-highlight-color: transparent;
     }
 
     button:active {
@@ -81,6 +86,7 @@
     }
 
     .cover-image {
+      display: block;
       width: min(100%, 420px);
       max-height: 62vh;
       object-fit: contain;
@@ -89,12 +95,13 @@
     }
 
     .cover-title {
-      font-size: clamp(26px, 6vw, 38px);
+      font-size: clamp(27px, 6vw, 38px);
       margin: 22px 0;
     }
 
     .letter-card {
       width: min(100%, 700px);
+      margin: auto;
       background: #fffdfd;
       border: 1px solid #f2dce2;
       border-radius: 20px;
@@ -111,18 +118,18 @@
     }
 
     .letter-image {
+      display: block;
       width: min(100%, 500px);
       height: auto;
-      object-fit: contain;
-      border-radius: 15px;
       margin: 18px auto;
-      display: block;
+      border-radius: 15px;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 4px;
       margin-top: 16px;
     }
@@ -136,7 +143,7 @@
       margin: 12px auto;
     }
 
-    .gallery-heading {
+    #galleryPage h2 {
       margin-top: 12px;
     }
 
@@ -150,19 +157,16 @@
     }
 
     .photo-card {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
       padding: 0;
       margin: 0;
+      overflow: hidden;
       border: 2px solid #f1d8df;
       border-radius: 10px;
-      overflow: hidden;
-      background: #fff;
-      cursor: pointer;
-      aspect-ratio: 1 / 1;
+      background: white;
       box-shadow: none;
-    }
-
-    .photo-card:hover {
-      transform: scale(1.02);
     }
 
     .photo-card img {
@@ -172,17 +176,23 @@
       object-fit: cover;
     }
 
+    .photo-card img.broken {
+      object-fit: contain;
+    }
+
     .gallery-buttons {
-      margin-top: 10px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 12px auto 20px;
     }
 
     .lightbox {
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 1000;
+      z-index: 9999;
       padding: 16px;
-      background: rgba(30, 20, 24, 0.94);
+      background: rgba(30, 20, 24, 0.95);
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -193,37 +203,25 @@
     }
 
     .lightbox img {
-      max-width: 88vw;
-      max-height: 76vh;
+      max-width: 90vw;
+      max-height: 72vh;
       object-fit: contain;
       border-radius: 8px;
-    }
-
-    .lightbox-controls {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
-    .lightbox button {
-      background: #d99aaa;
     }
 
     .close-lightbox {
       position: absolute;
       top: 12px;
       right: 12px;
-      font-size: 25px;
       width: 46px;
       height: 46px;
       padding: 0;
+      font-size: 28px;
     }
 
     .photo-counter {
       color: white;
-      margin-top: 10px;
-      font-size: 14px;
+      margin-top: 12px;
     }
 
     @media (min-width: 700px) {
@@ -248,7 +246,7 @@
 
       button {
         font-size: 14px;
-        padding: 11px 17px;
+        padding: 11px 16px;
       }
     }
   </style>
@@ -256,24 +254,26 @@
 
 <body>
 
-  <!-- PAGE 1: HOME -->
+  <!-- หน้าแรก -->
   <section id="cover" class="page active">
     <img
       class="cover-image"
       src="./IMG_3811.jpeg"
-      alt="Our little memories"
+      alt="Our Little Memories"
     >
 
     <h1 class="cover-title">Our Little Memories ♡</h1>
 
-    <button onclick="openLetter()">คลิกเพื่อเปิด ♡</button>
+    <button type="button" onclick="openLetter()">
+      คลิกเพื่อเปิด ♡
+    </button>
   </section>
 
 
-  <!-- PAGE 2: LETTER -->
+  <!-- หน้าจดหมาย -->
   <section id="surprise" class="page">
     <div class="letter-card">
-      <h2>OUR LITTLE BOOK ♡</h2>
+      <h2>OUR LITTLE BOOK</h2>
 
       <div class="letter-text">ถึงคนที่อ่านอยู่ตอนนี้ ♡
 
@@ -323,7 +323,7 @@
 
       <p><strong>From yeeyee ♡</strong></p>
 
-      <!-- รูปที่อยู่ใต้ From คงตำแหน่งเดิม -->
+      <!-- รูปนี้ยังอยู่ใต้ From ตามเดิม -->
       <img
         class="letter-image"
         src="./BEA780CB-6A18-4B4E-876F-C85624F82393.png"
@@ -331,14 +331,19 @@
       >
 
       <div class="button-row">
-        <button onclick="openVideo()">กดดูวิดีโอ 🎞️</button>
-        <button onclick="goHome()">กลับหน้าแรก</button>
+        <button type="button" onclick="openVideo()">
+          กดดูวิดีโอ 🎞️
+        </button>
+
+        <button type="button" onclick="goHome()">
+          กลับหน้าแรก
+        </button>
       </div>
     </div>
   </section>
 
 
-  <!-- PAGE 3: VIDEO -->
+  <!-- หน้าวิดีโอ -->
   <section id="videoPage" class="page">
     <h2>Our Memories 🎞️</h2>
 
@@ -350,28 +355,42 @@
     <p>ดูให้จบเลยนะ ♡</p>
 
     <div class="button-row">
-      <button onclick="openGallery()">กดดูรูปภาพ 🖼️</button>
-      <button onclick="goHome()">ย้อนกลับ</button>
+      <!-- แก้ให้เปิดหน้าแกลเลอรีโดยตรง -->
+      <button type="button" onclick="openGallery()">
+        กดดูรูปภาพ 🖼️
+      </button>
+
+      <button type="button" onclick="goHome()">
+        ย้อนกลับ
+      </button>
     </div>
   </section>
 
 
-  <!-- PAGE 4: GALLERY -->
+  <!-- หน้าแกลเลอรี -->
   <section id="galleryPage" class="page">
-    <h2 class="gallery-heading">Our Little Memories 🖼️</h2>
+    <h2>Our Little Memories 🖼️</h2>
     <p>รูปความทรงจำของพวกเรา ♡</p>
 
     <div id="gallery" class="gallery"></div>
 
     <div class="button-row gallery-buttons">
-      <button onclick="openVideo()">ย้อนกลับไปวิดีโอ</button>
-      <button onclick="openLetter()">กลับไปหน้าจดหมาย</button>
-      <button onclick="goHome()">กลับหน้าแรก</button>
+      <button type="button" onclick="openVideo()">
+        ย้อนกลับไปวิดีโอ
+      </button>
+
+      <button type="button" onclick="openLetter()">
+        กลับไปหน้าจดหมาย
+      </button>
+
+      <button type="button" onclick="goHome()">
+        กลับหน้าแรก
+      </button>
     </div>
   </section>
 
 
-  <!-- PHOTO LIGHTBOX -->
+  <!-- หน้าดูรูปขนาดใหญ่ -->
   <div
     id="lightbox"
     class="lightbox"
@@ -380,6 +399,7 @@
     aria-label="ดูรูปภาพขนาดใหญ่"
   >
     <button
+      type="button"
       class="close-lightbox"
       onclick="closeLightbox()"
       aria-label="ปิดรูปภาพ"
@@ -387,18 +407,21 @@
 
     <img id="lightboxImage" src="" alt="รูปภาพขนาดใหญ่">
 
-    <div class="photo-counter" id="photoCounter"></div>
+    <div id="photoCounter" class="photo-counter"></div>
 
-    <div class="lightbox-controls">
-      <button onclick="previousPhoto()">❮ รูปก่อนหน้า</button>
-      <button onclick="nextPhoto()">รูปถัดไป ❯</button>
+    <div class="button-row">
+      <button type="button" onclick="previousPhoto()">
+        ❮ รูปก่อนหน้า
+      </button>
+
+      <button type="button" onclick="nextPhoto()">
+        รูปถัดไป ❯
+      </button>
     </div>
   </div>
 
 
   <script>
-    // รายชื่อรูปทั้งหมด 76 รูป
-    // รวมรูปหน้าแรกและรูปใต้ From ด้วย ตั้งใจให้รูปซ้ำได้
     const photoFiles = [
       "01E05081-9935-477F-9E03-65A211631C89.jpeg",
       "A83C6742-6459-4DCF-BE3A-DB24F9A41906.jpeg",
@@ -478,7 +501,7 @@
       "IMG_9142.jpeg"
     ];
 
-    const pages = [
+    const pageIds = [
       "cover",
       "surprise",
       "videoPage",
@@ -487,12 +510,20 @@
 
     let currentPhotoIndex = 0;
 
+    // เปลี่ยนหน้าโดยแสดงเพียงหน้าที่เลือก
     function showPage(pageId) {
-      pages.forEach(function(id) {
+      const target = document.getElementById(pageId);
+
+      if (!target) {
+        console.error("ไม่พบหน้า:", pageId);
+        return;
+      }
+
+      pageIds.forEach(function(id) {
         document.getElementById(id).classList.remove("active");
       });
 
-      document.getElementById(pageId).classList.add("active");
+      target.classList.add("active");
       closeLightbox();
 
       const video = document.getElementById("memoryVideo");
@@ -501,10 +532,7 @@
         video.pause();
       }
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo(0, 0);
     }
 
     function openLetter() {
@@ -523,34 +551,29 @@
       showPage("cover");
     }
 
-    function goBack() {
-      goHome();
-    }
-
-
-    // สร้างแกลเลอรี
+    // สร้างรูปในแกลเลอรี รวมรูปที่ใช้หน้าอื่นด้วย
     function buildGallery() {
       const gallery = document.getElementById("gallery");
       gallery.innerHTML = "";
 
       photoFiles.forEach(function(filename, index) {
         const card = document.createElement("button");
-        card.className = "photo-card";
         card.type = "button";
+        card.className = "photo-card";
         card.setAttribute("aria-label", "เปิดรูปที่ " + (index + 1));
 
-        const image = document.createElement("img");
-        image.src = "./" + filename;
-        image.alt = "ความทรงจำรูปที่ " + (index + 1);
-        image.loading = "lazy";
-        image.decoding = "async";
+        const img = document.createElement("img");
+        img.src = "./" + filename;
+        img.alt = "ความทรงจำรูปที่ " + (index + 1);
+        img.loading = "lazy";
 
-        image.onerror = function() {
-          card.style.display = "none";
-          console.error("ไม่พบไฟล์รูป:", filename);
+        img.onerror = function() {
+          console.error("โหลดรูปไม่สำเร็จ:", filename);
+          img.classList.add("broken");
+          img.alt = "ไม่พบไฟล์ " + filename;
         };
 
-        card.appendChild(image);
+        card.appendChild(img);
 
         card.addEventListener("click", function() {
           showPhoto(index);
@@ -560,23 +583,18 @@
       });
     }
 
-
     // เปิดรูปขนาดใหญ่
     function showPhoto(index) {
       currentPhotoIndex =
         (index + photoFiles.length) % photoFiles.length;
 
-      const lightbox = document.getElementById("lightbox");
-      const image = document.getElementById("lightboxImage");
-      const counter = document.getElementById("photoCounter");
+      document.getElementById("lightboxImage").src =
+        "./" + photoFiles[currentPhotoIndex];
 
-      image.src = "./" + photoFiles[currentPhotoIndex];
-      image.alt = "รูปที่ " + (currentPhotoIndex + 1);
-
-      counter.textContent =
+      document.getElementById("photoCounter").textContent =
         (currentPhotoIndex + 1) + " / " + photoFiles.length;
 
-      lightbox.classList.add("active");
+      document.getElementById("lightbox").classList.add("active");
     }
 
     function closeLightbox() {
@@ -591,8 +609,7 @@
       showPhoto(currentPhotoIndex + 1);
     }
 
-
-    // ปิดรูปด้วยการแตะพื้นที่มืด
+    // แตะพื้นที่ด้านนอกเพื่อปิดรูป
     document.getElementById("lightbox").addEventListener(
       "click",
       function(event) {
@@ -602,8 +619,7 @@
       }
     );
 
-
-    // ใช้แป้นพิมพ์เลื่อนรูปหรือปิดรูป
+    // ปุ่มคีย์บอร์ดสำหรับดูรูป
     document.addEventListener("keydown", function(event) {
       const lightbox = document.getElementById("lightbox");
 
@@ -613,15 +629,18 @@
 
       if (event.key === "Escape") {
         closeLightbox();
-      } else if (event.key === "ArrowLeft") {
+      }
+
+      if (event.key === "ArrowLeft") {
         previousPhoto();
-      } else if (event.key === "ArrowRight") {
+      }
+
+      if (event.key === "ArrowRight") {
         nextPhoto();
       }
     });
 
-
-    // เริ่มสร้างแกลเลอรี
+    // สร้างแกลเลอรีเมื่อโหลดหน้าเสร็จ
     buildGallery();
   </script>
 
