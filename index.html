@@ -1,313 +1,182 @@
+
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Our Little Memories ♡</title>
 
 <style>
-
 * {
-
   box-sizing: border-box;
-
 }
 
 html {
-
   min-height: 100%;
-
 }
 
 body {
-
   margin: 0;
-
   padding: 0 10px;
-
   background: #fff3f0;
-
   color: #665052;
-
   font-family: sans-serif;
-
   line-height: 1.85;
-
 }
 
 .card {
-
   width: 100%;
-
   max-width: 500px;
-
   margin: 22px auto;
-
   padding: 28px 22px;
-
   background: #fffaf5;
-
   border: 1px solid #f1d5d5;
-
   border-radius: 24px;
-
   box-shadow: 0 8px 25px #bd7c8420;
-
   text-align: center;
-
 }
 
 .sticker {
-
   display: inline-block;
-
   margin: 5px;
-
   padding: 5px 12px;
-
   background: #fbe1e3;
-
   border-radius: 12px;
-
   transform: rotate(-3deg);
-
 }
 
 .heart {
-
   color: #cf7488;
-
   font-size: 32px;
-
 }
 
 h1, h2 {
-
   color: #b65d73;
-
   line-height: 1.5;
-
 }
 
 h1 {
-
   font-size: 27px;
-
 }
 
 button {
-
   background: #d8788d;
-
   color: white;
-
   border: 0;
-
   border-radius: 30px;
-
   padding: 13px 22px;
-
   margin: 7px 4px;
-
   font-size: 16px;
-
   font-family: inherit;
-
   cursor: pointer;
-
 }
 
 button.secondary {
-
   background: #f2dfe0;
-
   color: #985b69;
-
 }
 
 .hidden {
-
   display: none !important;
-
 }
-
-/* รูปภาพ */
 
 .memory-cover {
-
   display: block;
-
   width: 100%;
-
   height: auto;
-
   max-height: 500px;
-
   object-fit: contain;
-
   border-radius: 16px;
-
   margin: 18px auto;
-
   background: #f8e5e5;
-
 }
-
-/* จดหมาย */
 
 .letter {
-
   padding: 20px;
-
   background: #fff0ef;
-
   border-radius: 16px;
-
   text-align: left;
-
   white-space: pre-line;
-
   overflow-wrap: anywhere;
-
 }
 
-/* วิดีโอ */
-
 .video-box {
-
   margin-top: 22px;
-
   padding: 20px 12px;
-
   background: #f8e5e5;
-
   border: 1px dashed #dba3ad;
-
   border-radius: 17px;
-
 }
 
 video {
-
   display: block;
-
   width: 100%;
-
   border-radius: 12px;
-
   background: #f8e5e5;
-
 }
 
 .small {
-
   color: #a78b90;
-
   font-size: 13px;
-
 }
 
 footer {
-
   text-align: center;
-
   color: #a78b90;
-
   font-size: 12px;
-
   padding: 18px;
-
 }
 
-/* หน้าแรกอยู่กลางหน้าจอ */
-
+/* หน้าแรกอยู่กึ่งกลางจอ */
 #cover {
-
   width: 100%;
-
   max-width: 500px;
-
   min-height: 100vh;
-
   min-height: 100dvh;
-
   margin: 0 auto;
-
   padding: 24px 22px;
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
-
   align-items: center;
-
   text-align: center;
-
 }
 
 #cover h1 {
-
   width: 100%;
-
   margin: 10px auto;
-
 }
 
 #cover p {
-
   width: 100%;
-
   max-width: 360px;
-
   margin: 10px auto;
-
 }
 
 #cover .memory-cover {
-
   max-height: 260px;
-
   margin: 12px auto;
-
 }
 
 #cover button {
-
   margin: 12px auto;
-
 }
 
 @media (max-width: 600px) {
-
   .card {
-
     padding: 24px 18px;
-
   }
 
   #cover {
-
     padding: 24px 18px;
-
   }
-
 }
-
 </style>
-
 </head>
 
 <body>
 
 <!-- หน้า 1: หน้าแรก พร้อมรูปที่ 1 -->
-
 <section class="card" id="cover">
 
   <div class="sticker">FRIENDSHIP ♡</div>
@@ -317,43 +186,30 @@ footer {
   <h1>你好，我的朋友们</h1>
 
   <p>
-
     หยีมีอะไรอยากให้ดูด้วยแหละ
-
     <br>
-
     ตั้งใจทำให้เลยนะ ห้ามรีบปิดก่อนล่ะ!
-
   </p>
 
   <div class="sticker">a little surprise 🎀</div>
 
   <p>พร้อมย้อนดูความทรงจำของเราหรือยัง?</p>
 
-  <!-- รูปที่ 1 อยู่หน้าแรก -->
-
   <img
-
     src="IMG_3811.jpeg"
-
-    alt="รูปความทรงจำของพวกเรา"
-
+    alt="รูปความทรงจำรูปที่ 1"
     class="memory-cover"
-
   >
 
   <button onclick="openLetter()">
-
     คลิกเพื่อเปิด ♡
-
   </button>
 
   <p class="small">some memories stay forever</p>
 
 </section>
 
-<!-- หน้า 2: OUR LITTLE BOOK มีข้อความถึงเพื่อน -->
-
+<!-- หน้า 2: ข้อความถึงเพื่อน -->
 <section class="card hidden" id="surprise">
 
   <div class="sticker">OUR LITTLE BOOK</div>
@@ -362,7 +218,7 @@ footer {
 
   <h1>ขอบคุณที่เป็นเพื่อนกันมานะ</h1>
 
-  <div class="letter">ถึงแก ♡
+  <div class="letter">ถึงคนที่อ่านอยู่ตอนนี้ ♡
 
 ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในช่วงชีวิตนะ
 
@@ -411,35 +267,24 @@ footer {
 From yeeyee ♡</div>
 
   <div class="video-box">
-
     <div class="heart">🎀</div>
-
     <h2>เก็บความทรงจำของเราไว้ด้วยนะ</h2>
-
     <p>ยังมีรูปภาพอีกภาพที่อยากให้ดู ♡</p>
-
   </div>
 
-  <!-- ปุ่มเปิดรูปที่ 2 อยู่ท้ายจดหมาย -->
-
   <button onclick="showMemories()">
-
     เปิดดูรูปภาพที่ 2 ♡
-
   </button>
 
   <br>
 
   <button class="secondary" onclick="goBack()">
-
     กลับหน้าแรก
-
   </button>
 
 </section>
 
-<!-- หน้า 3: รูปที่ 2 เท่านั้น -->
-
+<!-- หน้า 3: รูปที่ 2 -->
 <section class="card hidden" id="memories">
 
   <div class="sticker">OUR MEMORIES</div>
@@ -449,43 +294,32 @@ From yeeyee ♡</div>
   <h1>Our Memories</h1>
 
   <img
-
     src="BEA780CB-6A18-4B4E-876F-C85624F82393.png"
-
     alt="รูปความทรงจำรูปที่ 2"
-
     class="memory-cover"
-
   >
 
   <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของพวกเรา ♡</p>
 
   <button onclick="showVideo()">
-
     กดดูวิดีโอ 🎞️
-
   </button>
 
   <br>
 
   <button class="secondary" onclick="openLetter()">
-
     กลับไปอ่านข้อความ 💌
-
   </button>
 
   <br>
 
   <button class="secondary" onclick="goBack()">
-
     กลับหน้าแรก
-
   </button>
 
 </section>
 
 <!-- หน้า 4: วิดีโอ -->
-
 <section class="card hidden" id="videoPage">
 
   <div class="sticker">OUR VIDEO ♡</div>
@@ -497,29 +331,19 @@ From yeeyee ♡</div>
   <div class="video-box">
 
     <video
-
       id="myVideo"
-
       controls
-
       playsinline
-
       preload="metadata"
-
     >
-
       <source src="video.mp4" type="video/mp4">
-
       เบราว์เซอร์นี้ไม่รองรับวิดีโอ
-
     </video>
 
   </div>
 
   <p id="videoMessage" class="small">
-
     ดูให้จบเลยนะ ♡
-
   </p>
 
   <div id="afterVideo" class="hidden">
@@ -527,25 +351,19 @@ From yeeyee ♡</div>
     <p>จบแล้วนะ เก็บความทรงจำนี้ไว้ดี ๆ ♡</p>
 
     <button onclick="showMemories()">
-
       กลับไปดูรูปภาพ
-
     </button>
 
     <br>
 
     <button class="secondary" onclick="openLetter()">
-
       กลับไปอ่านข้อความ 💌
-
     </button>
 
     <br>
 
     <button class="secondary" onclick="goBack()">
-
       กลับหน้าแรก
-
     </button>
 
   </div>
@@ -555,23 +373,15 @@ From yeeyee ♡</div>
 <footer>made with friendship &amp; love ♡</footer>
 
 <script>
-
 function hideAll() {
-
   document.getElementById("cover").classList.add("hidden");
-
   document.getElementById("surprise").classList.add("hidden");
-
   document.getElementById("memories").classList.add("hidden");
-
   document.getElementById("videoPage").classList.add("hidden");
-
 }
 
 function openLetter() {
-
   const video = document.getElementById("myVideo");
-
   video.pause();
 
   hideAll();
@@ -579,13 +389,10 @@ function openLetter() {
   document.getElementById("surprise").classList.remove("hidden");
 
   window.scrollTo(0, 0);
-
 }
 
 function showMemories() {
-
   const video = document.getElementById("myVideo");
-
   video.pause();
 
   hideAll();
@@ -593,45 +400,33 @@ function showMemories() {
   document.getElementById("memories").classList.remove("hidden");
 
   window.scrollTo(0, 0);
-
 }
 
 function showVideo() {
-
   const video = document.getElementById("myVideo");
 
   hideAll();
 
   document.getElementById("videoPage").classList.remove("hidden");
-
   document.getElementById("afterVideo").classList.add("hidden");
-
   document.getElementById("videoMessage").classList.remove("hidden");
 
   video.pause();
-
   video.currentTime = 0;
 
   window.scrollTo(0, 0);
-
 }
 
-/* เมื่อวิดีโอจบ ให้ค้างที่เฟรมสุดท้าย */
-
+/* วิดีโอจบแล้วค้างที่เฟรมสุดท้าย */
 document.getElementById("myVideo").addEventListener("ended", function () {
-
   this.pause();
 
   document.getElementById("videoMessage").classList.add("hidden");
-
   document.getElementById("afterVideo").classList.remove("hidden");
-
 });
 
 function goBack() {
-
   const video = document.getElementById("myVideo");
-
   video.pause();
 
   hideAll();
@@ -639,11 +434,8 @@ function goBack() {
   document.getElementById("cover").classList.remove("hidden");
 
   window.scrollTo(0, 0);
-
 }
-
 </script>
 
 </body>
-
 </html>
