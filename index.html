@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -17,185 +18,238 @@
 
     body {
       margin: 0;
-      padding: 0 12px;
-      background: #fff3f0;
-      color: #665052;
-      font-family: sans-serif;
-      line-height: 1.85;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 500px;
-      margin: 22px auto;
-      padding: 26px 20px;
-      background: #fffaf5;
-      border: 1px solid #f1d5d5;
-      border-radius: 24px;
-      box-shadow: 0 8px 25px #bd7c8420;
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #fff7f8;
+      color: #704d53;
       text-align: center;
     }
 
-    .hidden {
-      display: none !important;
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding: 24px 16px 40px;
+      animation: fadeIn 0.45s ease;
     }
 
-    .sticker {
-      display: inline-block;
-      padding: 5px 13px;
-      margin: 5px;
-      background: #fbe1e3;
-      border-radius: 12px;
-      transform: rotate(-3deg);
+    .page.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    .heart {
-      color: #cf7488;
-      font-size: 32px;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1, h2 {
-      color: #b65d73;
-      line-height: 1.5;
-    }
-
-    h1 {
-      font-size: 27px;
+      color: #a45f70;
+      margin: 12px 0;
     }
 
     p {
-      overflow-wrap: anywhere;
+      line-height: 1.9;
     }
 
     button {
-      display: inline-block;
-      visibility: visible;
-      opacity: 1;
-      background: #d8788d;
-      color: white;
       border: none;
-      border-radius: 30px;
+      border-radius: 999px;
+      background: #d99aaa;
+      color: white;
+      font-size: 15px;
       padding: 12px 22px;
-      margin: 8px 4px;
-      font-size: 16px;
-      font-family: inherit;
+      margin: 6px;
       cursor: pointer;
+      box-shadow: 0 4px 10px #d99aaa33;
+      transition: 0.2s;
     }
 
-    button.secondary {
-      background: #f2dfe0;
-      color: #985b69;
+    button:hover {
+      background: #c78094;
+      transform: translateY(-2px);
     }
 
-    .memory-cover {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 500px;
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .cover-image {
+      width: min(100%, 420px);
+      max-height: 62vh;
       object-fit: contain;
-      border-radius: 16px;
-      margin: 18px auto;
-      background: #f8e5e5;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px #704d5320;
     }
 
-    .letter {
-      padding: 20px;
-      background: #fff0ef;
-      border-radius: 16px;
-      text-align: left;
+    .cover-title {
+      font-size: clamp(26px, 6vw, 38px);
+      margin: 22px 0;
+    }
+
+    .letter-card {
+      width: min(100%, 700px);
+      background: #fffdfd;
+      border: 1px solid #f2dce2;
+      border-radius: 20px;
+      padding: 24px 18px;
+      box-shadow: 0 8px 25px #704d5310;
+    }
+
+    .letter-text {
       white-space: pre-line;
+      text-align: left;
+      line-height: 2;
+      font-size: 15px;
       overflow-wrap: anywhere;
     }
 
-    .video-box {
-      margin-top: 20px;
-      padding: 12px;
-      background: #f8e5e5;
-      border: 1px dashed #dba3ad;
-      border-radius: 17px;
-    }
-
-    video {
-      display: block;
-      width: 100%;
+    .letter-image {
+      width: min(100%, 500px);
       height: auto;
-      border-radius: 12px;
-      background: #000;
+      object-fit: contain;
+      border-radius: 15px;
+      margin: 18px auto;
+      display: block;
     }
 
-    .small {
-      color: #a78b90;
-      font-size: 13px;
-    }
-
-    /* ปุ่มใต้ข้อความในหน้าวิดีโอ */
-    #videoButtons {
-      display: flex !important;
-      flex-direction: column;
-      align-items: center;
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 4px;
+      margin-top: 16px;
+    }
+
+    #videoPage video {
+      display: block;
+      width: min(100%, 760px);
+      max-height: 65vh;
+      background: #171717;
+      border-radius: 16px;
+      margin: 12px auto;
+    }
+
+    .gallery-heading {
+      margin-top: 12px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
       width: 100%;
-      margin: 16px auto 0;
-      visibility: visible !important;
-      opacity: 1 !important;
+      max-width: 1000px;
+      margin: 18px auto;
     }
 
-    #videoButtons button {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      width: 100%;
-      max-width: 250px;
-      min-height: 46px;
+    .photo-card {
+      padding: 0;
       margin: 0;
+      border: 2px solid #f1d8df;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      cursor: pointer;
+      aspect-ratio: 1 / 1;
+      box-shadow: none;
     }
 
-    footer {
-      text-align: center;
-      color: #a78b90;
-      font-size: 12px;
-      padding: 18px;
+    .photo-card:hover {
+      transform: scale(1.02);
     }
 
-    /* หน้าแรกอยู่ตรงกลางหน้าจอ */
-    #cover {
-      max-width: 500px;
-      min-height: 100vh;
-      min-height: 100dvh;
-      margin: 0 auto;
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-buttons {
+      margin-top: 10px;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      padding: 16px;
+      background: rgba(30, 20, 24, 0.94);
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      flex-direction: column;
     }
 
-    #cover h1 {
-      margin: 10px 0;
+    .lightbox.active {
+      display: flex;
     }
 
-    #cover p {
-      max-width: 360px;
-      margin: 10px auto;
+    .lightbox img {
+      max-width: 88vw;
+      max-height: 76vh;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
-    #cover .memory-cover {
-      max-height: 260px;
+    .lightbox-controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 14px;
     }
 
-    @media (max-width: 600px) {
-      .card {
-        padding: 22px 16px;
+    .lightbox button {
+      background: #d99aaa;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 25px;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+    }
+
+    .photo-counter {
+      color: white;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    @media (min-width: 700px) {
+      .gallery {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
       }
 
-      #cover {
-        padding: 22px 16px;
+      .letter-card {
+        padding: 32px;
       }
 
-      .letter {
-        padding: 16px;
+      .letter-text {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      button {
+        font-size: 14px;
+        padding: 11px 17px;
       }
     }
   </style>
@@ -203,50 +257,26 @@
 
 <body>
 
-  <!-- หน้าแรก -->
-  <section class="card" id="cover">
-
-    <div class="sticker">FRIENDSHIP ♡</div>
-
-    <div class="heart">✿</div>
-
-    <h1>你好，我的朋友们</h1>
-
-    <p>
-      หยีมีอะไรอยากให้ดูด้วยแหละ
-      <br>
-      ตั้งใจทำให้เลยนะ ห้ามรีบปิดก่อนล่ะ!
-    </p>
-
-    <div class="sticker">a little surprise 🎀</div>
-
-    <p>พร้อมย้อนดูความทรงจำของเราหรือยัง?</p>
-
+  <!-- PAGE 1: HOME -->
+  <section id="cover" class="page active">
     <img
+      class="cover-image"
       src="./IMG_3811.jpeg"
-      alt="รูปหน้าแรก"
-      class="memory-cover"
+      alt="Our little memories"
     >
 
-    <button type="button" onclick="openLetter()">
-      คลิกเพื่อเปิด ♡
-    </button>
+    <h1 class="cover-title">Our Little Memories ♡</h1>
 
-    <p class="small">some memories stay forever</p>
-
+    <button onclick="openLetter()">คลิกเพื่อเปิด ♡</button>
   </section>
 
 
-  <!-- หน้า 2: จดหมายและรูป -->
-  <section class="card hidden" id="surprise">
+  <!-- PAGE 2: LETTER -->
+  <section id="surprise" class="page">
+    <div class="letter-card">
+      <h2>OUR LITTLE BOOK ♡</h2>
 
-    <div class="sticker">OUR LITTLE BOOK</div>
-
-    <div class="heart">♡</div>
-
-    <h1>ขอบคุณที่เป็นเพื่อนกันมานะ</h1>
-
-    <div class="letter">ถึงคนที่อ่านอยู่ตอนนี้ ♡
+      <div class="letter-text">ถึงคนที่อ่านอยู่ตอนนี้ ♡
 
 ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในช่วงชีวิตนะ
 
@@ -290,133 +320,310 @@
 
 ดีใจนะที่ครั้งหนึ่งได้มาเป็นเพื่อนกัน6คน6สไตล์
 
-ไว้มีโอกาสก็กลับมาเล่าเรื่องราวให้กันฟังอีกนะ
+ไว้มีโอกาสก็กลับมาเล่าเรื่องราวให้กันฟังอีกนะ</div>
 
-From yeeyee ♡</div>
+      <p><strong>From yeeyee ♡</strong></p>
 
-    <!-- รูปที่ 2 อยู่ใต้ From yeeyee -->
-    <img
-      src="./BEA780CB-6A18-4B4E-876F-C85624F82393.png"
-      alt="รูปความทรงจำของพวกเรา"
-      class="memory-cover"
-    >
+      <!-- รูปที่อยู่ใต้ From คงตำแหน่งเดิม -->
+      <img
+        class="letter-image"
+        src="./BEA780CB-6A18-4B4E-876F-C85624F82393.png"
+        alt="A little memory"
+      >
 
-    <button type="button" onclick="showVideo()">
-      กดดูวิดีโอ 🎞️
-    </button>
+      <div class="button-row">
+        <button onclick="openVideo()">กดดูวิดีโอ 🎞️</button>
+        <button onclick="goHome()">กลับหน้าแรก</button>
+      </div>
+    </div>
+  </section>
 
-    <br>
 
+  <!-- PAGE 3: VIDEO -->
+  <section id="videoPage" class="page">
+    <h2>Our Memories 🎞️</h2>
+
+    <video id="memoryVideo" controls playsinline preload="metadata">
+      <source src="./video.mp4" type="video/mp4">
+      เบราว์เซอร์นี้ไม่รองรับวิดีโอ
+    </video>
+
+    <p>ดูให้จบเลยนะ ♡</p>
+
+    <div class="button-row">
+      <button onclick="openGallery()">กดดูรูปภาพ 🖼️</button>
+      <button onclick="goHome()">ย้อนกลับ</button>
+    </div>
+  </section>
+
+
+  <!-- PAGE 4: GALLERY -->
+  <section id="galleryPage" class="page">
+    <h2 class="gallery-heading">Our Little Memories 🖼️</h2>
+    <p>รูปความทรงจำของพวกเรา ♡</p>
+
+    <div id="gallery" class="gallery"></div>
+
+    <div class="button-row gallery-buttons">
+      <button onclick="openVideo()">ย้อนกลับไปวิดีโอ</button>
+      <button onclick="openLetter()">กลับไปหน้าจดหมาย</button>
+      <button onclick="goHome()">กลับหน้าแรก</button>
+    </div>
+  </section>
+
+
+  <!-- PHOTO LIGHTBOX -->
+  <div
+    id="lightbox"
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="ดูรูปภาพขนาดใหญ่"
+  >
     <button
-      type="button"
-      class="secondary"
-      onclick="goBack()"
-    >
-      กลับหน้าแรก
-    </button>
+      class="close-lightbox"
+      onclick="closeLightbox()"
+      aria-label="ปิดรูปภาพ"
+    >×</button>
 
-  </section>
+    <img id="lightboxImage" src="" alt="รูปภาพขนาดใหญ่">
 
+    <div class="photo-counter" id="photoCounter"></div>
 
-  <!-- หน้า 3: วิดีโอ -->
-  <section class="card hidden" id="videoPage">
-
-    <div class="sticker">OUR VIDEO ♡</div>
-
-    <div class="heart">🎞️</div>
-
-    <h1>วิดีโอความทรงจำของเรา</h1>
-
-    <div class="video-box">
-
-      <video
-        id="myVideo"
-        controls
-        playsinline
-        preload="metadata"
-      >
-        <source src="./video.mp4" type="video/mp4">
-        เบราว์เซอร์นี้ไม่รองรับวิดีโอ
-      </video>
-
+    <div class="lightbox-controls">
+      <button onclick="previousPhoto()">❮ รูปก่อนหน้า</button>
+      <button onclick="nextPhoto()">รูปถัดไป ❯</button>
     </div>
-
-    <p class="small">ดูให้จบเลยนะ ♡</p>
-
-    <!-- สองปุ่มแสดงตลอด ไม่ต้องรอวิดีโอจบ -->
-    <div id="videoButtons">
-
-      <button
-        type="button"
-        onclick="openLetter()"
-      >
-        กดดูรูปภาพ 🖼️
-      </button>
-
-      <button
-        type="button"
-        class="secondary"
-        onclick="goBack()"
-      >
-        ย้อนกลับ
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <footer>made with friendship &amp; love ♡</footer>
+  </div>
 
 
   <script>
-    function hideAll() {
-      document.getElementById("cover").classList.add("hidden");
-      document.getElementById("surprise").classList.add("hidden");
-      document.getElementById("videoPage").classList.add("hidden");
+    // รายชื่อรูปทั้งหมด 76 รูป
+    // รวมรูปหน้าแรกและรูปใต้ From ด้วย ตั้งใจให้รูปซ้ำได้
+    const photoFiles = [
+      "01E05081-9935-477F-9E03-65A211631C89.jpeg",
+      "A83C6742-6459-4DCF-BE3A-DB24F9A41906.jpeg",
+      "BEA780CB-6A18-4B4E-876F-C85624F82393.png",
+      "EDF5CDD8-D6CE-47E9-9B45-A5BC80DE62F0.jpeg",
+      "FF88501D-36D1-4C34-8FB9-202B4BFB762F.jpeg",
+      "IMG_0072.jpeg",
+      "IMG_0248.jpeg",
+      "IMG_0318.jpeg",
+      "IMG_0323.jpeg",
+      "IMG_0471.jpeg",
+      "IMG_0558.jpeg",
+      "IMG_0958.jpeg",
+      "IMG_1056.jpeg",
+      "IMG_1113.jpeg",
+      "IMG_1114.jpeg",
+      "IMG_1116.jpeg",
+      "IMG_1117.jpeg",
+      "IMG_1119.jpeg",
+      "IMG_1286.jpeg",
+      "IMG_1336.jpeg",
+      "IMG_1352.jpeg",
+      "IMG_1360.jpeg",
+      "IMG_1361.jpeg",
+      "IMG_1363.jpeg",
+      "IMG_1468.jpeg",
+      "IMG_1591.jpeg",
+      "IMG_1668.jpeg",
+      "IMG_1790.jpeg",
+      "IMG_1791.jpeg",
+      "IMG_2066.jpeg",
+      "IMG_2067.jpeg",
+      "IMG_2068.jpeg",
+      "IMG_2300.jpeg",
+      "IMG_3032.jpeg",
+      "IMG_3033.jpeg",
+      "IMG_3407.jpeg",
+      "IMG_3764.jpeg",
+      "IMG_3767.jpeg",
+      "IMG_3805.jpeg",
+      "IMG_3809.jpeg",
+      "IMG_3811.jpeg",
+      "IMG_3812.jpeg",
+      "IMG_3845.jpeg",
+      "IMG_3846.jpeg",
+      "IMG_3848.jpeg",
+      "IMG_3862.jpeg",
+      "IMG_4199.jpeg",
+      "IMG_4217.jpeg",
+      "IMG_5052.jpeg",
+      "IMG_5081.jpeg",
+      "IMG_6136.jpeg",
+      "IMG_6137.jpeg",
+      "IMG_6138.jpeg",
+      "IMG_6142.jpeg",
+      "IMG_6302.jpeg",
+      "IMG_6363.jpeg",
+      "IMG_6367.jpeg",
+      "IMG_7107.jpeg",
+      "IMG_7163.jpeg",
+      "IMG_7173.jpeg",
+      "IMG_7480.jpeg",
+      "IMG_7481.jpeg",
+      "IMG_7701.jpeg",
+      "IMG_7702.jpeg",
+      "IMG_7711.jpeg",
+      "IMG_7746.jpeg",
+      "IMG_8580.jpeg",
+      "IMG_8582.jpeg",
+      "IMG_8597.jpeg",
+      "IMG_8833.jpeg",
+      "IMG_9093.jpeg",
+      "IMG_9096.jpeg",
+      "IMG_9131.jpeg",
+      "IMG_9135.jpeg",
+      "IMG_9137.jpeg",
+      "IMG_9142.jpeg"
+    ];
+
+    const pages = [
+      "cover",
+      "surprise",
+      "videoPage",
+      "galleryPage"
+    ];
+
+    let currentPhotoIndex = 0;
+
+    function showPage(pageId) {
+      pages.forEach(function(id) {
+        document.getElementById(id).classList.remove("active");
+      });
+
+      document.getElementById(pageId).classList.add("active");
+      closeLightbox();
+
+      const video = document.getElementById("memoryVideo");
+
+      if (pageId !== "videoPage") {
+        video.pause();
+      }
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
 
     function openLetter() {
-      const video = document.getElementById("myVideo");
-
-      video.pause();
-
-      hideAll();
-
-      document.getElementById("surprise").classList.remove("hidden");
-
-      window.scrollTo(0, 0);
+      showPage("surprise");
     }
 
-    function showVideo() {
-      const video = document.getElementById("myVideo");
+    function openVideo() {
+      showPage("videoPage");
+    }
 
-      hideAll();
+    function openGallery() {
+      showPage("galleryPage");
+    }
 
-      document.getElementById("videoPage").classList.remove("hidden");
-
-      video.pause();
-
-      try {
-        video.currentTime = 0;
-      } catch (error) {
-        // ไม่ทำอะไรหากวิดีโอยังไม่พร้อม
-      }
-
-      window.scrollTo(0, 0);
+    function goHome() {
+      showPage("cover");
     }
 
     function goBack() {
-      const video = document.getElementById("myVideo");
-
-      video.pause();
-
-      hideAll();
-
-      document.getElementById("cover").classList.remove("hidden");
-
-      window.scrollTo(0, 0);
+      goHome();
     }
+
+
+    // สร้างแกลเลอรี
+    function buildGallery() {
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = "";
+
+      photoFiles.forEach(function(filename, index) {
+        const card = document.createElement("button");
+        card.className = "photo-card";
+        card.type = "button";
+        card.setAttribute("aria-label", "เปิดรูปที่ " + (index + 1));
+
+        const image = document.createElement("img");
+        image.src = "./" + filename;
+        image.alt = "ความทรงจำรูปที่ " + (index + 1);
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        image.onerror = function() {
+          card.style.display = "none";
+          console.error("ไม่พบไฟล์รูป:", filename);
+        };
+
+        card.appendChild(image);
+
+        card.addEventListener("click", function() {
+          showPhoto(index);
+        });
+
+        gallery.appendChild(card);
+      });
+    }
+
+
+    // เปิดรูปขนาดใหญ่
+    function showPhoto(index) {
+      currentPhotoIndex =
+        (index + photoFiles.length) % photoFiles.length;
+
+      const lightbox = document.getElementById("lightbox");
+      const image = document.getElementById("lightboxImage");
+      const counter = document.getElementById("photoCounter");
+
+      image.src = "./" + photoFiles[currentPhotoIndex];
+      image.alt = "รูปที่ " + (currentPhotoIndex + 1);
+
+      counter.textContent =
+        (currentPhotoIndex + 1) + " / " + photoFiles.length;
+
+      lightbox.classList.add("active");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+    }
+
+    function previousPhoto() {
+      showPhoto(currentPhotoIndex - 1);
+    }
+
+    function nextPhoto() {
+      showPhoto(currentPhotoIndex + 1);
+    }
+
+
+    // ปิดรูปด้วยการแตะพื้นที่มืด
+    document.getElementById("lightbox").addEventListener(
+      "click",
+      function(event) {
+        if (event.target.id === "lightbox") {
+          closeLightbox();
+        }
+      }
+    );
+
+
+    // ใช้แป้นพิมพ์เลื่อนรูปหรือปิดรูป
+    document.addEventListener("keydown", function(event) {
+      const lightbox = document.getElementById("lightbox");
+
+      if (!lightbox.classList.contains("active")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      } else if (event.key === "ArrowLeft") {
+        previousPhoto();
+      } else if (event.key === "ArrowRight") {
+        nextPhoto();
+      }
+    });
+
+
+    // เริ่มสร้างแกลเลอรี
+    buildGallery();
   </script>
 
 </body>
