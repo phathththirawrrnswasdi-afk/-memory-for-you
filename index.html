@@ -182,6 +182,22 @@ video {
 
   margin: 18px auto;
 
+  background: #f8e5e5;
+
+}
+
+.image-error {
+
+  color: #b65d73;
+
+  background: #fff0ef;
+
+  border-radius: 12px;
+
+  padding: 12px;
+
+  overflow-wrap: anywhere;
+
 }
 
 .small {
@@ -256,13 +272,27 @@ footer {
 
   <img
 
-    src="IMG_3811.jpeg"
+    id="coverPhoto"
+
+    src="./IMG_3811.jpeg"
 
     alt="รูปความทรงจำของพวกเรา"
 
     class="memory-cover"
 
+    onerror="showImageError()"
+
   >
+
+  <p id="imageError" class="image-error hidden">
+
+    ยังโหลดรูปไม่สำเร็จ ♡
+
+    <br>
+
+    กรุณาตรวจสอบชื่อไฟล์รูปและตำแหน่งที่อัปโหลดใน GitHub
+
+  </p>
 
   <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของพวกเรา ♡</p>
 
@@ -290,7 +320,7 @@ footer {
 
   <h1>ขอบคุณที่เป็นเพื่อนกันมานะ</h1>
 
-  <div class="letter">ถึงคนที่อ่านอยู่ตอนนี้ ♡
+  <div class="letter">ถึงแก ♡
 
 ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในช่วงชีวิตนะ
 
@@ -334,7 +364,9 @@ footer {
 
 ดีใจนะที่ครั้งหนึ่งได้มาเป็นเพื่อนกัน6คน6สไตล์
 
-ไว้มีโอกาสก็กลับมาเล่าเรื่องราวให้กันฟังอีกนะ
+ไว้มีโอกาสก็หาเวลามาเจอกัน
+    
+เล่าเรื่องราวต่างๆในชีวิตให้กันฟังอีกนะ
 
 From yeeyee ♡</div>
 
@@ -435,6 +467,14 @@ function goBack() {
   document.getElementById("cover").classList.remove("hidden");
 
   window.scrollTo(0, 0);
+
+}
+
+function showImageError() {
+
+  document.getElementById("coverPhoto").classList.add("hidden");
+
+  document.getElementById("imageError").classList.remove("hidden");
 
 }
 
