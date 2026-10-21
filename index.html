@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -80,6 +79,15 @@ button.secondary {
   display: none !important;
 }
 
+.letter {
+  padding: 20px;
+  background: #fff0ef;
+  border-radius: 16px;
+  text-align: left;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
 .memory-cover {
   display: block;
   width: 100%;
@@ -89,15 +97,6 @@ button.secondary {
   border-radius: 16px;
   margin: 18px auto;
   background: #f8e5e5;
-}
-
-.letter {
-  padding: 20px;
-  background: #fff0ef;
-  border-radius: 16px;
-  text-align: left;
-  white-space: pre-line;
-  overflow-wrap: anywhere;
 }
 
 .video-box {
@@ -127,7 +126,7 @@ footer {
   padding: 18px;
 }
 
-/* หน้าแรกอยู่กึ่งกลางจอ */
+/* หน้าแรกอยู่กลางหน้าจอ */
 #cover {
   width: 100%;
   max-width: 500px;
@@ -209,7 +208,7 @@ footer {
 
 </section>
 
-<!-- หน้า 2: ข้อความถึงเพื่อน -->
+<!-- หน้า 2: OUR LITTLE BOOK และข้อความถึงเพื่อน -->
 <section class="card hidden" id="surprise">
 
   <div class="sticker">OUR LITTLE BOOK</div>
@@ -266,49 +265,16 @@ footer {
 
 From yeeyee ♡</div>
 
-  <div class="video-box">
-    <div class="heart">🎀</div>
-    <h2>เก็บความทรงจำของเราไว้ด้วยนะ</h2>
-    <p>ยังมีรูปภาพอีกภาพที่อยากให้ดู ♡</p>
-  </div>
-
-  <button onclick="showMemories()">
-    เปิดดูรูปภาพที่ 2 ♡
-  </button>
-
-  <br>
-
-  <button class="secondary" onclick="goBack()">
-    กลับหน้าแรก
-  </button>
-
-</section>
-
-<!-- หน้า 3: รูปที่ 2 -->
-<section class="card hidden" id="memories">
-
-  <div class="sticker">OUR MEMORIES</div>
-
-  <div class="heart">♡</div>
-
-  <h1>Our Memories</h1>
-
+  <!-- รูปที่ 2 อยู่ใต้ From yeeyee ทันที -->
   <img
     src="BEA780CB-6A18-4B4E-876F-C85624F82393.png"
     alt="รูปความทรงจำรูปที่ 2"
     class="memory-cover"
   >
 
-  <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของพวกเรา ♡</p>
-
+  <!-- ปุ่มดูวิดีโออยู่ใต้รูปที่ 2 -->
   <button onclick="showVideo()">
     กดดูวิดีโอ 🎞️
-  </button>
-
-  <br>
-
-  <button class="secondary" onclick="openLetter()">
-    กลับไปอ่านข้อความ 💌
   </button>
 
   <br>
@@ -319,7 +285,7 @@ From yeeyee ♡</div>
 
 </section>
 
-<!-- หน้า 4: วิดีโอ -->
+<!-- หน้า 3: วิดีโอ -->
 <section class="card hidden" id="videoPage">
 
   <div class="sticker">OUR VIDEO ♡</div>
@@ -350,13 +316,7 @@ From yeeyee ♡</div>
 
     <p>จบแล้วนะ เก็บความทรงจำนี้ไว้ดี ๆ ♡</p>
 
-    <button onclick="showMemories()">
-      กลับไปดูรูปภาพ
-    </button>
-
-    <br>
-
-    <button class="secondary" onclick="openLetter()">
+    <button onclick="openLetter()">
       กลับไปอ่านข้อความ 💌
     </button>
 
@@ -376,7 +336,6 @@ From yeeyee ♡</div>
 function hideAll() {
   document.getElementById("cover").classList.add("hidden");
   document.getElementById("surprise").classList.add("hidden");
-  document.getElementById("memories").classList.add("hidden");
   document.getElementById("videoPage").classList.add("hidden");
 }
 
@@ -387,17 +346,6 @@ function openLetter() {
   hideAll();
 
   document.getElementById("surprise").classList.remove("hidden");
-
-  window.scrollTo(0, 0);
-}
-
-function showMemories() {
-  const video = document.getElementById("myVideo");
-  video.pause();
-
-  hideAll();
-
-  document.getElementById("memories").classList.remove("hidden");
 
   window.scrollTo(0, 0);
 }
@@ -417,7 +365,7 @@ function showVideo() {
   window.scrollTo(0, 0);
 }
 
-/* วิดีโอจบแล้วค้างที่เฟรมสุดท้าย */
+/* เมื่อวิดีโอจบ ให้ค้างที่เฟรมสุดท้าย */
 document.getElementById("myVideo").addEventListener("ended", function () {
   this.pause();
 
