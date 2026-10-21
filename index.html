@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -6,7 +7,9 @@
   <title>Our Little Memories ♡</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       min-height: 100%;
@@ -34,7 +37,9 @@
       text-align: center;
     }
 
-    .hidden { display: none !important; }
+    .hidden {
+      display: none !important;
+    }
 
     .sticker {
       display: inline-block;
@@ -55,12 +60,18 @@
       line-height: 1.5;
     }
 
-    h1 { font-size: 27px; }
+    h1 {
+      font-size: 27px;
+    }
 
-    p { overflow-wrap: anywhere; }
+    p {
+      overflow-wrap: anywhere;
+    }
 
     button {
       display: inline-block;
+      visibility: visible;
+      opacity: 1;
       background: #d8788d;
       color: white;
       border: none;
@@ -118,8 +129,27 @@
       font-size: 13px;
     }
 
-    .video-buttons {
-      margin-top: 12px;
+    /* ปุ่มใต้ข้อความในหน้าวิดีโอ */
+    #videoButtons {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin: 16px auto 0;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    #videoButtons button {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      width: 100%;
+      max-width: 250px;
+      min-height: 46px;
+      margin: 0;
     }
 
     footer {
@@ -143,19 +173,31 @@
       text-align: center;
     }
 
-    #cover h1 { margin: 10px 0; }
+    #cover h1 {
+      margin: 10px 0;
+    }
 
     #cover p {
       max-width: 360px;
       margin: 10px auto;
     }
 
-    #cover .memory-cover { max-height: 260px; }
+    #cover .memory-cover {
+      max-height: 260px;
+    }
 
     @media (max-width: 600px) {
-      .card { padding: 22px 16px; }
-      #cover { padding: 22px 16px; }
-      .letter { padding: 16px; }
+      .card {
+        padding: 22px 16px;
+      }
+
+      #cover {
+        padding: 22px 16px;
+      }
+
+      .letter {
+        padding: 16px;
+      }
     }
   </style>
 </head>
@@ -164,7 +206,9 @@
 
   <!-- หน้าแรก -->
   <section class="card" id="cover">
+
     <div class="sticker">FRIENDSHIP ♡</div>
+
     <div class="heart">✿</div>
 
     <h1>你好，我的朋友们</h1>
@@ -185,15 +229,20 @@
       class="memory-cover"
     >
 
-    <button onclick="openLetter()">คลิกเพื่อเปิด ♡</button>
+    <button type="button" onclick="openLetter()">
+      คลิกเพื่อเปิด ♡
+    </button>
 
     <p class="small">some memories stay forever</p>
+
   </section>
 
 
   <!-- หน้า 2: จดหมายและรูป -->
   <section class="card hidden" id="surprise">
+
     <div class="sticker">OUR LITTLE BOOK</div>
+
     <div class="heart">♡</div>
 
     <h1>ขอบคุณที่เป็นเพื่อนกันมานะ</h1>
@@ -246,29 +295,41 @@
 
 From yeeyee ♡</div>
 
-    <!-- รูปที่ 2 ใต้ From yeeyee -->
+    <!-- รูปที่ 2 อยู่ใต้ From yeeyee -->
     <img
       src="./BEA780CB-6A18-4B4E-876F-C85624F82393.png"
       alt="รูปความทรงจำของพวกเรา"
       class="memory-cover"
     >
 
-    <button onclick="showVideo()">กดดูวิดีโอ 🎞️</button>
+    <button type="button" onclick="showVideo()">
+      กดดูวิดีโอ 🎞️
+    </button>
 
     <br>
 
-    <button class="secondary" onclick="goBack()">กลับหน้าแรก</button>
+    <button
+      type="button"
+      class="secondary"
+      onclick="goBack()"
+    >
+      กลับหน้าแรก
+    </button>
+
   </section>
 
 
   <!-- หน้า 3: วิดีโอ -->
   <section class="card hidden" id="videoPage">
+
     <div class="sticker">OUR VIDEO ♡</div>
+
     <div class="heart">🎞️</div>
 
     <h1>วิดีโอความทรงจำของเรา</h1>
 
     <div class="video-box">
+
       <video
         id="myVideo"
         controls
@@ -278,16 +339,31 @@ From yeeyee ♡</div>
         <source src="./video.mp4" type="video/mp4">
         เบราว์เซอร์นี้ไม่รองรับวิดีโอ
       </video>
+
     </div>
 
     <p class="small">ดูให้จบเลยนะ ♡</p>
 
-    <!-- ปุ่ม 2 ปุ่มอยู่ใต้ข้อความตลอด -->
-    <div class="video-buttons">
-      <button onclick="openLetter()">กดดูรูปภาพ 🖼️</button>
+    <!-- สองปุ่มแสดงตลอด ไม่ต้องรอวิดีโอจบ -->
+    <div id="videoButtons">
 
-      <button class="secondary" onclick="goBack()">ย้อนกลับ</button>
+      <button
+        type="button"
+        onclick="openLetter()"
+      >
+        กดดูรูปภาพ 🖼️
+      </button>
+
+      <button
+        type="button"
+        class="secondary"
+        onclick="goBack()"
+      >
+        ย้อนกลับ
+      </button>
+
     </div>
+
   </section>
 
 
@@ -303,9 +379,11 @@ From yeeyee ♡</div>
 
     function openLetter() {
       const video = document.getElementById("myVideo");
+
       video.pause();
 
       hideAll();
+
       document.getElementById("surprise").classList.remove("hidden");
 
       window.scrollTo(0, 0);
@@ -315,6 +393,7 @@ From yeeyee ♡</div>
       const video = document.getElementById("myVideo");
 
       hideAll();
+
       document.getElementById("videoPage").classList.remove("hidden");
 
       video.pause();
@@ -322,7 +401,7 @@ From yeeyee ♡</div>
       try {
         video.currentTime = 0;
       } catch (error) {
-        // หากวิดีโอยังไม่พร้อม จะไม่ทำให้หน้าเว็บหยุดทำงาน
+        // ไม่ทำอะไรหากวิดีโอยังไม่พร้อม
       }
 
       window.scrollTo(0, 0);
@@ -330,9 +409,11 @@ From yeeyee ♡</div>
 
     function goBack() {
       const video = document.getElementById("myVideo");
+
       video.pause();
 
       hideAll();
+
       document.getElementById("cover").classList.remove("hidden");
 
       window.scrollTo(0, 0);
