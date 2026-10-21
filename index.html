@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html lang="th">
@@ -166,6 +168,18 @@ video {
 
 }
 
+.photo-gallery {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin: 18px 0;
+
+}
+
 .memory-cover {
 
   display: block;
@@ -180,23 +194,9 @@ video {
 
   border-radius: 16px;
 
-  margin: 18px auto;
+  margin: 0 auto;
 
   background: #f8e5e5;
-
-}
-
-.image-error {
-
-  color: #b65d73;
-
-  background: #fff0ef;
-
-  border-radius: 12px;
-
-  padding: 12px;
-
-  overflow-wrap: anywhere;
 
 }
 
@@ -217,6 +217,40 @@ footer {
   font-size: 12px;
 
   padding: 18px;
+
+}
+
+/* หน้าแรกให้อยู่กลางหน้าจอ */
+
+#cover {
+
+  min-height: calc(100vh - 44px);
+
+  min-height: calc(100dvh - 44px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+#cover p {
+
+  max-width: 360px;
+
+}
+
+@media (max-width: 600px) {
+
+  #cover {
+
+    padding: 24px 18px;
+
+  }
 
 }
 
@@ -270,35 +304,39 @@ footer {
 
   <h1>Our Memories</h1>
 
-  <img
+  <div class="photo-gallery">
 
-    id="coverPhoto"
+    <!-- รูปที่ 1 -->
 
-    src="./IMG_3811.jpeg"
+    <img
 
-    alt="รูปความทรงจำของพวกเรา"
+      src="IMG_3811.jpeg"
 
-    class="memory-cover"
+      alt="รูปความทรงจำรูปที่ 1"
 
-    onerror="showImageError()"
+      class="memory-cover"
 
-  >
+    >
 
-  <p id="imageError" class="image-error hidden">
+    <!-- รูปที่ 2 -->
 
-    ยังโหลดรูปไม่สำเร็จ ♡
+    <img
 
-    <br>
+      src="BEA780CB-6A18-4B4E-876F-C85624F82393.png"
 
-    กรุณาตรวจสอบชื่อไฟล์รูปและตำแหน่งที่อัปโหลดใน GitHub
+      alt="รูปความทรงจำรูปที่ 2"
 
-  </p>
+      class="memory-cover"
+
+    >
+
+  </div>
 
   <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของพวกเรา ♡</p>
 
-  <button onclick="openLetter()">
+  <button onclick="showVideo()">
 
-    กดดูต่อ ♡
+    กดดูวิดีโอ 🎞️
 
   </button>
 
@@ -310,7 +348,65 @@ footer {
 
 </section>
 
-<!-- หน้า 3: จดหมายและวิดีโอเดิม -->
+<!-- หน้า 3: วิดีโอ -->
+
+<section class="card hidden" id="videoPage">
+
+  <div class="sticker">OUR VIDEO ♡</div>
+
+  <div class="heart">🎞️</div>
+
+  <h1>วิดีโอความทรงจำของเรา</h1>
+
+  <div class="video-box">
+
+    <video
+
+      id="myVideo"
+
+      controls
+
+      playsinline
+
+      preload="metadata"
+
+    >
+
+      <source src="video.mp4" type="video/mp4">
+
+      เบราว์เซอร์นี้ไม่รองรับวิดีโอ
+
+    </video>
+
+  </div>
+
+  <p id="videoMessage" class="small">
+
+    ดูให้จบเลยนะ ♡
+
+  </p>
+
+  <div id="afterVideo" class="hidden">
+
+    <p>จบแล้วนะ เก็บความทรงจำนี้ไว้ดี ๆ ♡</p>
+
+    <button onclick="showMemories()">
+
+      กลับไปดูรูปภาพ
+
+    </button>
+
+    <button class="secondary" onclick="goBack()">
+
+      กลับหน้าแรก
+
+    </button>
+
+  </div>
+
+</section>
+
+<!-- หน้า 4: จดหมายเดิม -->
 
 <section class="card hidden" id="surprise">
 
@@ -364,43 +460,19 @@ footer {
 
 ดีใจนะที่ครั้งหนึ่งได้มาเป็นเพื่อนกัน6คน6สไตล์
 
-ไว้มีโอกาสก็หาเวลามาเจอกัน
-    
-เล่าเรื่องราวต่างๆในชีวิตให้กันฟังอีกนะ
+ไว้มีโอกาสก็กลับมาเล่าเรื่องราวให้กันฟังอีกนะ
 
 From yeeyee ♡</div>
 
   <div class="video-box">
 
-    <div id="waiting">
+    <div class="heart">🎞️</div>
 
-      <div class="heart">🎞️</div>
+    <h2>Our Memories</h2>
 
-      <h2>Our Memories</h2>
+    <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของเรา</p>
 
-      <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของเรา</p>
-
-      <p class="small">คลิปความทรงจำอยู่ตรงนี้ ♡</p>
-
-    </div>
-
-    <video
-
-      id="myVideo"
-
-      controls
-
-      playsinline
-
-      preload="metadata"
-
-      class="hidden"
-
-    >
-
-      <source src="video.mp4" type="video/mp4">
-
-    </video>
+    <p class="small">คลิปความทรงจำอยู่ในหน้าวิดีโอนะ ♡</p>
 
   </div>
 
@@ -432,6 +504,8 @@ function hideAll() {
 
   document.getElementById("memories").classList.add("hidden");
 
+  document.getElementById("videoPage").classList.add("hidden");
+
   document.getElementById("surprise").classList.add("hidden");
 
 }
@@ -445,6 +519,36 @@ function showMemories() {
   window.scrollTo(0, 0);
 
 }
+
+function showVideo() {
+
+  hideAll();
+
+  const video = document.getElementById("myVideo");
+
+  document.getElementById("videoPage").classList.remove("hidden");
+
+  document.getElementById("afterVideo").classList.add("hidden");
+
+  document.getElementById("videoMessage").classList.remove("hidden");
+
+  video.currentTime = 0;
+
+  window.scrollTo(0, 0);
+
+}
+
+document.getElementById("myVideo").addEventListener("ended", function () {
+
+  // ไม่รีเซ็ตเวลาและไม่เล่นวน
+
+  // วิดีโอจะค้างที่เฟรมสุดท้าย
+
+  document.getElementById("videoMessage").classList.add("hidden");
+
+  document.getElementById("afterVideo").classList.remove("hidden");
+
+});
 
 function openLetter() {
 
@@ -467,14 +571,6 @@ function goBack() {
   document.getElementById("cover").classList.remove("hidden");
 
   window.scrollTo(0, 0);
-
-}
-
-function showImageError() {
-
-  document.getElementById("coverPhoto").classList.add("hidden");
-
-  document.getElementById("imageError").classList.remove("hidden");
 
 }
 
