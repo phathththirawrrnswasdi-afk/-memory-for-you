@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html lang="th">
@@ -116,9 +118,9 @@ button {
 
   font-size: 16px;
 
-  cursor: pointer;
-
   font-family: inherit;
+
+  cursor: pointer;
 
 }
 
@@ -147,6 +149,8 @@ button.secondary {
   text-align: left;
 
   white-space: pre-line;
+
+  overflow-wrap: anywhere;
 
 }
 
@@ -228,7 +232,7 @@ footer {
 
 }
 
-/* หน้าแรก: กึ่งกลางจอทั้งแนวตั้งและแนวนอน */
+/* หน้าแรกอยู่กึ่งกลางหน้าจอ */
 
 #cover {
 
@@ -300,7 +304,7 @@ footer {
 
 }
 
-/* หน้าที่เหลือคงระยะขอบเดิม */
+/* หน้าอื่น ๆ */
 
 #memories,
 
@@ -344,8 +348,6 @@ footer {
 
 }
 
-/* จอที่เตี้ยมาก ลดระยะห่างเพื่อให้เนื้อหาไม่อึดอัด */
-
 @media (max-height: 600px) {
 
   #cover {
@@ -388,7 +390,7 @@ footer {
 
   <p>พร้อมย้อนดูความทรงจำของเราหรือยัง?</p>
 
-  <button onclick="showMemories()">
+  <button onclick="openLetter()">
 
     คลิกเพื่อเปิด ♡
 
@@ -398,119 +400,7 @@ footer {
 
 </section>
 
-<!-- หน้า 2: Our Memories -->
-
-<section class="card hidden" id="memories">
-
-  <div class="sticker">OUR MEMORIES</div>
-
-  <div class="heart">♡</div>
-
-  <h1>Our Memories</h1>
-
-  <div class="photo-gallery">
-
-    <!-- รูปที่ 1 -->
-
-    <img
-
-      src="IMG_3811.jpeg"
-
-      alt="รูปความทรงจำรูปที่ 1"
-
-      class="memory-cover"
-
-    >
-
-    <!-- รูปที่ 2 -->
-
-    <img
-
-      src="BEA780CB-6A18-4B4E-876F-C85624F82393.png"
-
-      alt="รูปความทรงจำรูปที่ 2"
-
-      class="memory-cover"
-
-    >
-
-  </div>
-
-  <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของพวกเรา ♡</p>
-
-  <button onclick="showVideo()">
-
-    กดดูวิดีโอ 🎞️
-
-  </button>
-
-  <button class="secondary" onclick="goBack()">
-
-    กลับหน้าแรก
-
-  </button>
-
-</section>
-
-<!-- หน้า 3: วิดีโอ -->
-
-<section class="card hidden" id="videoPage">
-
-  <div class="sticker">OUR VIDEO ♡</div>
-
-  <div class="heart">🎞️</div>
-
-  <h1>วิดีโอความทรงจำของเรา</h1>
-
-  <div class="video-box">
-
-    <video
-
-      id="myVideo"
-
-      controls
-
-      playsinline
-
-      preload="metadata"
-
-    >
-
-      <source src="video.mp4" type="video/mp4">
-
-      เบราว์เซอร์นี้ไม่รองรับวิดีโอ
-
-    </video>
-
-  </div>
-
-  <p id="videoMessage" class="small">
-
-    ดูให้จบเลยนะ ♡
-
-  </p>
-
-  <div id="afterVideo" class="hidden">
-
-    <p>จบแล้วนะ เก็บความทรงจำนี้ไว้ดี ๆ ♡</p>
-
-    <button onclick="showMemories()">
-
-      กลับไปดูรูปภาพ
-
-    </button>
-
-    <button class="secondary" onclick="goBack()">
-
-      กลับหน้าแรก
-
-    </button>
-
-  </div>
-
-</section>
-
-<!-- หน้า 4: จดหมายเดิม -->
+<!-- หน้า 2: ข้อความถึงเพื่อน -->
 
 <section class="card hidden" id="surprise">
 
@@ -520,7 +410,7 @@ footer {
 
   <h1>ขอบคุณที่เป็นเพื่อนกันมานะ</h1>
 
-  <div class="letter">ถึงแก ♡
+  <div class="letter">ถึงคนที่กำลังอ่านอยู่ตอนนี้ ♡
 
 ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในช่วงชีวิตนะ
 
@@ -570,31 +460,155 @@ From yeeyee ♡</div>
 
   <div class="video-box">
 
-    <div class="heart">🎞️</div>
+    <div class="heart">🎀</div>
 
-    <h2>Our Memories</h2>
+    <h2>เก็บความทรงจำของเราไว้ด้วยนะ</h2>
 
-    <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของเรา</p>
-
-    <p class="small">คลิปความทรงจำอยู่ในหน้าวิดีโอนะ ♡</p>
+    <p>ยังมีรูปถ่ายและวิดีโอของพวกเราอีก ♡</p>
 
   </div>
 
-  <p>
+  <button onclick="showMemories()">
 
-    วันหนึ่งถ้าใครสักคนในนี้กลับมาเปิดเว็บนี้อีก
+    ไปดูรูปภาพของพวกเรา ♡
 
-    <br>
+  </button>
 
-    ขอให้ยิ้มได้ทุกครั้งเมื่อนึกถึงวันวานของพวกเรานะ ♡
-
-  </p>
+  <br>
 
   <button class="secondary" onclick="goBack()">
 
-    กลับไปหน้าแรก
+    กลับหน้าแรก
 
   </button>
+
+</section>
+
+<!-- หน้า 3: Our Memories -->
+
+<section class="card hidden" id="memories">
+
+  <div class="sticker">OUR MEMORIES</div>
+
+  <div class="heart">♡</div>
+
+  <h1>Our Memories</h1>
+
+  <div class="photo-gallery">
+
+    <img
+
+      src="IMG_3811.jpeg"
+
+      alt="รูปความทรงจำรูปที่ 1"
+
+      class="memory-cover"
+
+    >
+
+    <img
+
+      src="BEA780CB-6A18-4B4E-876F-C85624F82393.png"
+
+      alt="รูปความทรงจำรูปที่ 2"
+
+      class="memory-cover"
+
+    >
+
+  </div>
+
+  <p>รูปถ่าย เรื่องราว และช่วงเวลาดี ๆ ของพวกเรา ♡</p>
+
+  <button onclick="showVideo()">
+
+    กดดูวิดีโอ 🎞️
+
+  </button>
+
+  <br>
+
+  <button class="secondary" onclick="openLetter()">
+
+    กลับไปอ่านข้อความ 💌
+
+  </button>
+
+  <br>
+
+  <button class="secondary" onclick="goBack()">
+
+    กลับหน้าแรก
+
+  </button>
+
+</section>
+
+<!-- หน้า 4: วิดีโอ -->
+
+<section class="card hidden" id="videoPage">
+
+  <div class="sticker">OUR VIDEO ♡</div>
+
+  <div class="heart">🎞️</div>
+
+  <h1>วิดีโอความทรงจำของเรา</h1>
+
+  <div class="video-box">
+
+    <video
+
+      id="myVideo"
+
+      controls
+
+      playsinline
+
+      preload="metadata"
+
+    >
+
+      <source src="video.mp4" type="video/mp4">
+
+      เบราว์เซอร์นี้ไม่รองรับวิดีโอ
+
+    </video>
+
+  </div>
+
+  <p id="videoMessage" class="small">
+
+    ดูให้จบเลยนะ ♡
+
+  </p>
+
+  <div id="afterVideo" class="hidden">
+
+    <p>จบแล้วนะ เก็บความทรงจำนี้ไว้ดี ๆ ♡</p>
+
+    <button onclick="showMemories()">
+
+      กลับไปดูรูปภาพ
+
+    </button>
+
+    <br>
+
+    <button class="secondary" onclick="openLetter()">
+
+      กลับไปอ่านข้อความ 💌
+
+    </button>
+
+    <br>
+
+    <button class="secondary" onclick="goBack()">
+
+      กลับหน้าแรก
+
+    </button>
+
+  </div>
 
 </section>
 
@@ -606,15 +620,33 @@ function hideAll() {
 
   document.getElementById("cover").classList.add("hidden");
 
+  document.getElementById("surprise").classList.add("hidden");
+
   document.getElementById("memories").classList.add("hidden");
 
   document.getElementById("videoPage").classList.add("hidden");
 
-  document.getElementById("surprise").classList.add("hidden");
+}
+
+function openLetter() {
+
+  const video = document.getElementById("myVideo");
+
+  video.pause();
+
+  hideAll();
+
+  document.getElementById("surprise").classList.remove("hidden");
+
+  window.scrollTo(0, 0);
 
 }
 
 function showMemories() {
+
+  const video = document.getElementById("myVideo");
+
+  video.pause();
 
   hideAll();
 
@@ -626,9 +658,9 @@ function showMemories() {
 
 function showVideo() {
 
-  hideAll();
-
   const video = document.getElementById("myVideo");
+
+  hideAll();
 
   document.getElementById("videoPage").classList.remove("hidden");
 
@@ -655,16 +687,6 @@ document.getElementById("myVideo").addEventListener("ended", function () {
   document.getElementById("afterVideo").classList.remove("hidden");
 
 });
-
-function openLetter() {
-
-  hideAll();
-
-  document.getElementById("surprise").classList.remove("hidden");
-
-  window.scrollTo(0, 0);
-
-}
 
 function goBack() {
 
